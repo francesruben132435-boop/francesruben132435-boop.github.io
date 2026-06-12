@@ -1277,6 +1277,7 @@ button {
   }
 
   body {
+    min-width: 1320px !important;
     overflow-x: auto !important;
   }
 
@@ -1287,12 +1288,32 @@ button {
     padding: 10px 16px !important;
   }
 
+  .stats-grid,
+  .trust-cards,
+  .services-grid,
+  .why-grid,
+  .projects-grid,
+  .process-grid,
+  .certifications-grid,
+  .footer-wrap {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 22px !important;
+  }
+
+  .service-detail-container,
+  .contact-content {
+    grid-template-columns: 1fr 1.1fr !important;
+    align-items: start !important;
+    gap: 24px !important;
+  }
+
   .logo-link {
     position: absolute !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     display: block !important;
     margin: 0 !important;
+    font-size: 1.05rem !important;
   }
 
   .main-nav {
@@ -1310,7 +1331,7 @@ button {
   .phone-cta {
     width: auto !important;
     min-width: 220px !important;
-    padding: 12px 18px !important;
+    padding: 12px 16px !important;
   }
 
   .dropdown-menu {
@@ -1321,10 +1342,69 @@ button {
     margin: 0 !important;
   }
 
+  .hero-grid,
+  .services-grid,
+  .why-grid,
+  .projects-grid,
+  .process-grid,
+  .certifications-grid,
+  .contact-layout,
+  .footer-wrap {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 22px !important;
+  }
+
   .hero-grid {
     grid-template-columns: 1.1fr 0.9fr !important;
     gap: 28px !important;
     padding: 0 24px 0 !important;
+  }
+
+  .services-grid,
+  .why-grid,
+  .process-grid,
+  .certifications-grid,
+  .footer-wrap {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  .projects-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 20px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    padding-bottom: 8px !important;
+    margin: 0 -10px !important;
+  }
+
+  .projects-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .project-card {
+    min-width: calc((100% - 20px) / 2) !important;
+    flex: 0 0 calc((100% - 20px) / 2) !important;
+    scroll-snap-align: start !important;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1.1fr 0.9fr !important;
+    align-items: start !important;
+    gap: 28px !important;
+    max-width: 1320px !important;
+  }
+
+  .contact-form,
+  .contact-panel,
+  .contact-card,
+  .project-card,
+  .service-card,
+  .why-card,
+  .process-step,
+  .cert-box {
+    min-height: auto !important;
+    padding: 20px !important;
   }
 
   .hero-copy {
@@ -1333,11 +1413,13 @@ button {
 
   .hero-copy h1 {
     font-size: clamp(2.2rem, 3.5vw, 3.6rem) !important;
+    line-height: 1.05 !important;
   }
 
   .hero-copy p,
   .hero-benefits {
     max-width: 540px !important;
+    font-size: 1rem !important;
   }
 
   .hero-buttons {
@@ -1357,6 +1439,30 @@ button {
   .hero-card.logo-only {
     max-width: 520px !important;
     margin: 0 auto !important;
+  }
+
+  .hero-card.logo-only img {
+    width: min(100%, 420px) !important;
+  }
+
+  .section {
+    padding: 36px 24px !important;
+  }
+
+  .section-head,
+  .footer-wrap {
+    max-width: 1320px !important;
+    margin: 0 auto !important;
+  }
+
+  .section-head h2 {
+    font-size: clamp(2rem, 3vw, 3.4rem) !important;
+  }
+
+  .button,
+  .dropdown-toggle,
+  .phone-cta {
+    white-space: nowrap !important;
   }
 }
 
