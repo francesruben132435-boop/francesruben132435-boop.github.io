@@ -1590,3 +1590,75 @@ button {
     padding: 24px;
   }
 }
+
+/* Overrides para forzar apariencia de escritorio en móviles (ajustes finos) */
+@media (max-width: 480px) {
+  .hero-grid {
+    grid-template-columns: 1fr 0.8fr !important;
+    gap: 12px !important;
+    padding: 0 12px !important;
+    align-items: center !important;
+  }
+
+  .hero-copy {
+    margin-left: 16px !important;
+  }
+
+  .hero-copy h1 {
+    font-size: 2.2rem !important;
+    line-height: 1.02 !important;
+  }
+
+  .hero-copy p,
+  .hero-benefits {
+    font-size: 0.95rem !important;
+    max-width: none !important;
+  }
+
+  .hero-card.logo-only {
+    max-width: 320px !important;
+    margin: 0 !important;
+    border-radius: 50% !important;
+  }
+
+  .hero-card.logo-only img {
+    width: min(180px, 38vw) !important;
+    height: auto !important;
+    clip-path: circle(50% at 50% 50%) !important;
+  }
+
+  .header-wrap {
+    grid-template-columns: auto 1fr auto !important;
+    padding: 8px 12px !important;
+  }
+
+  .logo-link {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-size: 1rem !important;
+  }
+
+  .dropdown-toggle,
+  .phone-cta {
+    padding: 8px 10px !important;
+    min-width: 0 !important;
+  }
+
+  .section {
+    padding: 28px 12px !important;
+    min-height: auto !important;
+  }
+
+  .lightbox-content {
+    width: min(420px, 80vw) !important;
+    max-height: 60vh !important;
+  }
+
+  .hero-visual {
+    justify-content: flex-end !important;
+  }
+
+  body {
+    -webkit-text-size-adjust: 100% !important;
+  }
+}
