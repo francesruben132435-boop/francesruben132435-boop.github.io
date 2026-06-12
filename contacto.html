@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proteo Alturas | Contacto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header-bar">
+    <div class="header-wrap">
+      <a class="logo-link" href="index.html">PROTEO ALTURAS</a>
+      <nav class="main-nav">
+        <div class="nav-dropdown">
+          <button class="dropdown-toggle" type="button">Menú ▾</button>
+          <div class="dropdown-menu">
+            <a href="index.html">Inicio</a>
+            <a href="quienes-somos.html">Quiénes Somos</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="contacto.html">Contacto</a>
+          </div>
+        </div>
+      </nav>
+      <a class="phone-cta" href="tel:+527291112663">Hablar con un Profesional</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section contact">
+      <div class="section-head">
+        <p class="section-label">CONTACTO Y COTIZACIÓN</p>
+        <h2>Solicita tu cotización y recibe atención rápida de nuestro equipo técnico.</h2>
+      </div>
+      <div class="contact-layout">
+        <div class="contact-card">
+          <h3>Teléfono</h3>
+          <p><a href="tel:+527291112663">+52 729 111 2663</a></p>
+          <h3>Correo</h3>
+          <p><a href="mailto:centenorojo1@gmail.com">centenorojo1@gmail.com</a></p>
+        </div>
+        <form class="contact-form" action="mailto:centenorojo1@gmail.com" method="post" enctype="text/plain">
+          <label>Nombre<input type="text" name="Nombre" required></label>
+          <label>Empresa<input type="text" name="Empresa" required></label>
+          <label>Teléfono<input type="tel" name="Teléfono" required></label>
+          <label>Correo<input type="email" name="Correo" required></label>
+          <label>Descripción del proyecto<textarea name="Descripción" rows="5" required></textarea></label>
+          <button type="submit" class="button button-primary">Solicitar Cotización</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <div class="footer-brand">Proteo Alturas</div>
+      <div class="footer-links">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Quiénes Somos</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div class="footer-contact">
+        <a href="tel:+527291112663">+52 729 111 2663</a>
+        <a href="mailto:centenorojo1@gmail.com">centenorojo1@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      var lastScroll = 0;
+      var header = document.querySelector('.header-bar');
+      if (!header) return;
+      window.addEventListener('scroll', function() {
+        var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll > lastScroll && currentScroll > 60) {
+          header.classList.add('header-hidden');
+        } else {
+          header.classList.remove('header-hidden');
+        }
+        lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+      });
+    })();
+  </script>
+</body>
+</html>

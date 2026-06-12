@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proteo Alturas | Quiénes Somos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header-bar">
+    <div class="header-wrap">
+      <a class="logo-link" href="index.html">PROTEO ALTURAS</a>
+      <nav class="main-nav">
+        <div class="nav-dropdown">
+          <button class="dropdown-toggle" type="button">Menú ▾</button>
+          <div class="dropdown-menu">
+            <a href="index.html">Inicio</a>
+            <a href="quienes-somos.html">Quiénes Somos</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="contacto.html">Contacto</a>
+          </div>
+        </div>
+      </nav>
+      <a class="phone-cta" href="tel:+527291112663">Hablar con un Profesional</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section about">
+      <div class="section-head">
+        <p class="section-label">QUIÉNES SOMOS</p>
+        <h2>Somos especialistas en seguridad, calidad y eficiencia para trabajos en altura.</h2>
+        <p>Proteo Alturas combina experiencia técnica, control de riesgos y procesos certificados para entregar soluciones industriales confiables.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span>+10</span>
+          <p>Años de experiencia en proyectos industriales</p>
+        </div>
+        <div class="stat-card">
+          <span>100%</span>
+          <p>Declaraciones de seguridad y reportes documentados</p>
+        </div>
+        <div class="stat-card">
+          <span>+120</span>
+          <p>Servicios entregados con satisfacción técnica</p>
+        </div>
+      </div>
+      <div class="trust-cards">
+        <article class="trust-card">
+          <h3>Seguridad Certificada</h3>
+          <p>Protocolos claros, equipo calibrado y respaldo técnico.</p>
+        </article>
+        <article class="trust-card">
+          <h3>Personal Capacitado</h3>
+          <p>Técnicos especializados en accesos verticales y trabajos en altura.</p>
+        </article>
+        <article class="trust-card">
+          <h3>Calidad y Durabilidad</h3>
+          <p>Materiales profesionales y procesos de ejecución controlados.</p>
+        </article>
+        <article class="trust-card">
+          <h3>Garantía por Escrito</h3>
+          <p>Respaldo formal en cada etapa del proyecto.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <div class="footer-brand">Proteo Alturas</div>
+      <div class="footer-links">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Quiénes Somos</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div class="footer-contact">
+        <a href="tel:+527291112663">+52 729 111 2663</a>
+        <a href="mailto:centenorojo1@gmail.com">centenorojo1@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      var lastScroll = 0;
+      var header = document.querySelector('.header-bar');
+      if (!header) return;
+      window.addEventListener('scroll', function() {
+        var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll > lastScroll && currentScroll > 60) {
+          header.classList.add('header-hidden');
+        } else {
+          header.classList.remove('header-hidden');
+        }
+        lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+      });
+    })();
+  </script>
+</body>
+</html>

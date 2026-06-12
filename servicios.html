@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proteo Alturas | Servicios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header-bar">
+    <div class="header-wrap">
+      <a class="logo-link" href="index.html">PROTEO ALTURAS</a>
+      <nav class="main-nav">
+        <div class="nav-dropdown">
+          <button class="dropdown-toggle" type="button">Menú ▾</button>
+          <div class="dropdown-menu">
+            <a href="index.html">Inicio</a>
+            <a href="quienes-somos.html">Quiénes Somos</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="contacto.html">Contacto</a>
+          </div>
+        </div>
+      </nav>
+      <a class="phone-cta" href="tel:+527291112663">Hablar con un Profesional</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section services">
+      <div class="section-head">
+        <p class="section-label">NUESTROS SERVICIOS</p>
+        <h2>Soluciones completas para infraestructura, techumbres y seguridad industrial.</h2>
+      </div>
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon">🧗</div>
+          <h3>Acceso con Cuerdas</h3>
+          <p>Equipo autorizado y técnicas de cuerdas para trabajos rápidos y seguros en altura.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">💧</div>
+          <h3>Impermeabilización</h3>
+          <p>Recubrimientos avanzados para techumbres e infraestructura crítica.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">🔬</div>
+          <h3>Limpieza Láser</h3>
+          <p>Remoción controlada de suciedad y corrosión sin dañar la superficie.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">🏗</div>
+          <h3>Mantenimiento de Techumbres</h3>
+          <p>Inspección, reparaciones y mantenimiento preventivo para cubrir pérdidas y filtraciones.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3>Sistemas de Seguridad y Anclaje</h3>
+          <p>Soluciones certificadas para proteger a los trabajos en altura.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">📦</div>
+          <h3>Montajes Industriales y Racks</h3>
+          <p>Montaje estructural profesional para bodegas, plantas y espacios industriales.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <div class="footer-brand">Proteo Alturas</div>
+      <div class="footer-links">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Quiénes Somos</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div class="footer-contact">
+        <a href="tel:+527291112663">+52 729 111 2663</a>
+        <a href="mailto:centenorojo1@gmail.com">centenorojo1@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      var lastScroll = 0;
+      var header = document.querySelector('.header-bar');
+      if (!header) return;
+      window.addEventListener('scroll', function() {
+        var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll > lastScroll && currentScroll > 60) {
+          header.classList.add('header-hidden');
+        } else {
+          header.classList.remove('header-hidden');
+        }
+        lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+      });
+    })();
+  </script>
+</body>
+</html>

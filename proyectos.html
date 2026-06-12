@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proteo Alturas | Proyectos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header-bar">
+    <div class="header-wrap">
+      <a class="logo-link" href="index.html">PROTEO ALTURAS</a>
+      <nav class="main-nav">
+        <div class="nav-dropdown">
+          <button class="dropdown-toggle" type="button">Menú ▾</button>
+          <div class="dropdown-menu">
+            <a href="index.html">Inicio</a>
+            <a href="quienes-somos.html">Quiénes Somos</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="contacto.html">Contacto</a>
+          </div>
+        </div>
+      </nav>
+      <a class="phone-cta" href="tel:+527291112663">Hablar con un Profesional</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section proyectos">
+      <div class="section-head">
+        <p class="section-label">PROYECTOS REALIZADOS</p>
+        <h2>Casos de éxito que muestran resultados confiables y soluciones técnicas.</h2>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card">
+          <img src="assets/imagenes/trabajo-1.jpg" alt="Cambio de láminas" />
+          <div class="project-summary">
+            <h3>Cambio de láminas</h3>
+            <p><strong>Problema detectado:</strong> corrosión y filtraciones en cubierta metálica.</p>
+            <p><strong>Solución aplicada:</strong> instalación de láminas nuevas y refuerzo de sellos.</p>
+            <p><strong>Resultado:</strong> cubierta restaurada y libre de filtraciones.</p>
+          </div>
+        </article>
+        <article class="project-card">
+          <img src="assets/imagenes/trabajo-2.jpg" alt="Reparación de techumbres" />
+          <div class="project-summary">
+            <h3>Reparación de techumbres</h3>
+            <p><strong>Problema detectado:</strong> fugas en centro logístico.</p>
+            <p><strong>Solución aplicada:</strong> impermeabilización y refuerzo de juntas.</p>
+            <p><strong>Resultado:</strong> operación segura y cubierta protegida.</p>
+          </div>
+        </article>
+        <article class="project-card">
+          <img src="assets/imagenes/trabajo-3.jpg" alt="Sistemas de anclaje" />
+          <div class="project-summary">
+            <h3>Sistemas de anclaje</h3>
+            <p><strong>Problema detectado:</strong> falta de puntos de seguridad para trabajo en altura.</p>
+            <p><strong>Solución aplicada:</strong> instalación de líneas de vida y anclajes certificados.</p>
+            <p><strong>Resultado:</strong> riesgo reducido y cumplimiento normativo.</p>
+          </div>
+        </article>
+        <article class="project-card">
+          <img src="assets/imagenes/trabajo-4.jpg" alt="Impermeabilizaciones industriales" />
+          <div class="project-summary">
+            <h3>Impermeabilizaciones industriales</h3>
+            <p><strong>Problema detectado:</strong> humedad constante en estructuras metálicas.</p>
+            <p><strong>Solución aplicada:</strong> limpieza y recubrimientos especializados.</p>
+            <p><strong>Resultado:</strong> mayor protección y menor mantenimiento futuro.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <div class="footer-brand">Proteo Alturas</div>
+      <div class="footer-links">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Quiénes Somos</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div class="footer-contact">
+        <a href="tel:+527291112663">+52 729 111 2663</a>
+        <a href="mailto:centenorojo1@gmail.com">centenorojo1@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      var lastScroll = 0;
+      var header = document.querySelector('.header-bar');
+      if (!header) return;
+      window.addEventListener('scroll', function() {
+        var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll > lastScroll && currentScroll > 60) {
+          header.classList.add('header-hidden');
+        } else {
+          header.classList.remove('header-hidden');
+        }
+        lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+      });
+    })();
+  </script>
+</body>
+</html>
