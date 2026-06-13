@@ -30,63 +30,100 @@
   </header>
 
   <main>
-    <section class="section about">
+    <section class="section who" id="quienes-somos">
       <div class="section-head">
         <p class="section-label">QUIÉNES SOMOS</p>
         <h2>Somos especialistas en seguridad, calidad y eficiencia para trabajos en altura.</h2>
-        <p>Proteo Alturas combina experiencia técnica, control de riesgos y procesos certificados para entregar soluciones industriales confiables.</p>
+        <p class="muted">Proteo Alturas combina experiencia técnica, control de riesgos y procesos certificados para entregar soluciones industriales confiables.</p>
       </div>
+
       <div class="stats-grid">
-        <div class="stat-card">
-          <span>+10</span>
+        <article class="stat-card">
+          <h3>+10</h3>
           <p>Años de experiencia en proyectos industriales</p>
-        </div>
-        <div class="stat-card">
-          <span>100%</span>
+        </article>
+        <article class="stat-card">
+          <h3>100%</h3>
           <p>Declaraciones de seguridad y reportes documentados</p>
-        </div>
-        <div class="stat-card">
-          <span>+120</span>
+        </article>
+        <article class="stat-card">
+          <h3>+120</h3>
           <p>Servicios entregados con satisfacción técnica</p>
-        </div>
+        </article>
       </div>
-      <div class="trust-cards">
-        <article class="trust-card">
+
+      <div class="why-grid">
+        <article class="why-card">
           <h3>Seguridad Certificada</h3>
           <p>Protocolos claros, equipo calibrado y respaldo técnico.</p>
         </article>
-        <article class="trust-card">
+        <article class="why-card">
           <h3>Personal Capacitado</h3>
           <p>Técnicos especializados en accesos verticales y trabajos en altura.</p>
         </article>
-        <article class="trust-card">
+        <article class="why-card">
           <h3>Calidad y Durabilidad</h3>
           <p>Materiales profesionales y procesos de ejecución controlados.</p>
         </article>
-        <article class="trust-card">
+        <article class="why-card">
           <h3>Garantía por Escrito</h3>
           <p>Respaldo formal en cada etapa del proyecto.</p>
         </article>
       </div>
     </section>
+    <section class="section contact" id="contacto">
+      <div class="section-head">
+        <p class="section-label">CONTACTO Y COTIZACIÓN</p>
+        <h2>Contáctanos y obtén una cotización en poco tiempo.</h2>
+      </div>
+      <div class="contact-layout">
+        <form class="contact-form" action="mailto:centenorojo1@gmail.com" method="post" enctype="text/plain">
+          <p class="contact-panel-copy">Déjanos tus datos y nos pondremos en contacto contigo para ofrecerte la mejor solución en techos y obras industriales en altura.</p>
+          <div class="form-grid">
+            <label>Tu nombre (obligatorio)
+              <input type="text" name="Nombre" required>
+            </label>
+            <label>Tu correo electrónico (obligatorio)
+              <input type="email" name="Correo" required>
+            </label>
+            <label>Teléfono (10 dígitos)
+              <input type="tel" name="Teléfono" required>
+            </label>
+            <label>Tu mensaje
+              <textarea name="Descripción" rows="5" required></textarea>
+            </label>
+          </div>
+          <button type="submit" class="button button-primary">Enviar</button>
+        </form>
+        <aside class="contact-panel">
+          <img class="contact-logo" src="assets/imagenes/proteo-logo-hero.jpeg" alt="Proteo Alturas">
+          <div class="contact-panel-item">
+            <span class="icon">📞</span>
+            <div>
+              <strong>Teléfono</strong>
+              <a href="tel:+527291112663">+52 729 111 2663</a>
+            </div>
+          </div>
+          <div class="contact-panel-item">
+            <span class="icon">💬</span>
+            <div>
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/527291112663" target="_blank">+52 729 111 2663</a>
+            </div>
+          </div>
+          <div class="contact-panel-item">
+            <span class="icon">✉️</span>
+            <div>
+              <strong>Correo</strong>
+              <a href="mailto:centenorojo1@gmail.com">centenorojo1@gmail.com</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-wrap">
-      <div class="footer-brand">Proteo Alturas</div>
-      <div class="footer-links">
-        <a href="index.html">Inicio</a>
-        <a href="quienes-somos.html">Quiénes Somos</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="proyectos.html">Proyectos</a>
-        <a href="contacto.html">Contacto</a>
-      </div>
-      <div class="footer-contact">
-        <a href="tel:+527291112663">+52 729 111 2663</a>
-        <a href="mailto:centenorojo1@gmail.com">centenorojo1@gmail.com</a>
-      </div>
-    </div>
-  </footer>
   <script>
     (function() {
       var lastScroll = 0;
@@ -100,6 +137,24 @@
           header.classList.remove('header-hidden');
         }
         lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+      });
+    })();
+  </script>
+ 
+  <script>
+    // Enable dropdown toggle on click/touch
+    (function(){
+      document.addEventListener('click', function(e){
+        var toggle = e.target.closest && e.target.closest('.dropdown-toggle');
+        if (toggle) {
+          var dropdown = toggle.closest('.nav-dropdown');
+          if (dropdown) dropdown.classList.toggle('open');
+          return;
+        }
+        // Close when clicking outside
+        document.querySelectorAll('.nav-dropdown.open').forEach(function(nd){
+          if (!nd.contains(e.target)) nd.classList.remove('open');
+        });
       });
     })();
   </script>

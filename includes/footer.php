@@ -1,22 +1,23 @@
   </main>
 
   <script>
+    // Accordion behaviour
     document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const target = header.getAttribute('data-target');
         const content = document.getElementById(target);
         const icon = header.querySelector('.accordion-icon');
-        const isActive = content.classList.contains('active');
+        const isActive = content && content.classList.contains('active');
 
-        // Cerrar otros acordeones abiertos
         document.querySelectorAll('.accordion-content.active').forEach(item => {
           if (item.id !== target) {
             item.classList.remove('active');
-            item.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            const prev = item.previousElementSibling;
+            if (prev) prev.querySelector('.accordion-icon').textContent = '+';
           }
         });
 
-        // Toggle el actual
+        if (!content) return;
         if (isActive) {
           content.classList.remove('active');
           icon.textContent = '+';
@@ -26,13 +27,22 @@
         }
       });
     });
+
+    // Dropdown toggle for touch / click devices
+    (function(){
+      document.addEventListener('click', function(e){
+        var toggle = e.target.closest && e.target.closest('.dropdown-toggle');
+        if (toggle) {
+          var dropdown = toggle.closest('.nav-dropdown');
+          if (dropdown) dropdown.classList.toggle('open');
+          return;
+        }
+        // Close any open dropdowns when clicking outside
+        document.querySelectorAll('.nav-dropdown.open').forEach(function(nd){
+          if (!nd.contains(e.target)) nd.classList.remove('open');
+        });
+      });
+    })();
   </script>
-</body>Array.from(document.querySelectorAll('.product-card')).map((c,i)=>({
-  i,
-  classes:[...c.classList],
-  hasCardInner: !!c.querySelector('.card-inner'),
-  hasFront: !!c.querySelector('.card-front'),
-  hasBack: !!c.querySelector('.card-back'),
-  rect: c.getBoundingClientRect()
-}))
+</body>
 </html>
