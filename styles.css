@@ -1,22 +1,23 @@
 /* Base settings */
 :root {
   color-scheme: light;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
   font-size: 16px;
-  color: #f7fafc;
-  background: #051827;
-  --bg: #051827;
-  --primary: #1e6da8;
-  --accent: #f79f3d;
-  --accent-soft: #ffc78b;
-  --surface: #f7fbff;
-  --surface-soft: #e9f2fb;
-  --surface-strong: #0d2a49;
-  --text: #f7fafc;
-  --text-dark: #10293f;
-  --muted: #9bb5d0;
-  --border: rgba(255,255,255,0.12);
-  --shadow: 0 24px 60px rgba(4, 16, 34, 0.22);
+  color: #0b1e2b;
+  background: #f6f8fb;
+  --bg: #f6f8fb;
+  --primary: #0b2a44; /* deep navy */
+  --primary-contrast: #ffffff;
+  --accent: #c78b2a; /* warm gold */
+  --accent-soft: #fde8c8;
+  --surface: #ffffff;
+  --surface-soft: #f3f6fb;
+  --surface-strong: #e9eef6;
+  --text: #0b1e2b; /* body text */
+  --heading: #071428; /* headings */
+  --muted: #6b7785;
+  --border: rgba(11,42,68,0.08);
+  --shadow: 0 20px 48px rgba(11,42,68,0.08);
 }
 
 * {
@@ -25,11 +26,12 @@
 
 html {
   scroll-behavior: smooth;
-  min-width: 1320px;
-  background: radial-gradient(circle at 18% 10%, rgba(247, 159, 61, 0.14), transparent 18%),
-              radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.12), transparent 14%),
-              radial-gradient(circle at 70% 90%, rgba(30, 109, 168, 0.18), transparent 24%),
-              linear-gradient(180deg, #051827 0%, #0b325b 45%, #081d34 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: radial-gradient(circle at 18% 10%, rgba(13, 42, 73, 0.08), transparent 18%),
+              radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.6), transparent 14%),
+              radial-gradient(circle at 70% 90%, rgba(13, 42, 73, 0.06), transparent 24%),
+              linear-gradient(180deg, #f6f8fb 0%, #eef4fc 45%, #f8f9fc 100%);
 }
 
 body {
@@ -39,18 +41,69 @@ body {
   color: var(--text);
   background: var(--bg);
   position: relative;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: var(--heading);
+  margin: 0 0 18px 0;
+  line-height: 1.08;
+}
+
+h1 { font-size: clamp(2rem, 3.6vw, 3.6rem); font-weight: 700; }
+h2 { font-size: clamp(1.5rem, 3vw, 2.4rem); font-weight: 600; }
+h3 { font-size: clamp(1.125rem, 2.4vw, 1.5rem); font-weight: 600; }
+
+p, li, a, span {
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: underline dotted rgba(11,42,68,0.12);
+}
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 0;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-soft) 100%);
+  color: var(--primary-contrast);
+  box-shadow: 0 18px 44px rgba(199,139,42,0.14);
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--border);
+}
+
+/* Muted text */
+.muted { color: var(--muted); }
 
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at top right, rgba(247, 159, 61, 0.18), transparent 18%),
-              radial-gradient(circle at 35% 18%, rgba(255, 255, 255, 0.14), transparent 14%),
-              radial-gradient(circle at 78% 30%, rgba(34, 92, 143, 0.22), transparent 16%),
-              radial-gradient(circle at 50% 80%, rgba(57, 124, 174, 0.16), transparent 22%),
+  background: radial-gradient(circle at top right, rgba(255, 212, 150, 0.12), transparent 18%),
+              radial-gradient(circle at 35% 18%, rgba(13, 42, 73, 0.08), transparent 14%),
+              radial-gradient(circle at 78% 30%, rgba(13, 42, 73, 0.1), transparent 16%),
+              radial-gradient(circle at 50% 80%, rgba(95, 130, 180, 0.1), transparent 22%),
               radial-gradient(circle at 25% 70%, rgba(255,255,255,0.08), transparent 28%);
   opacity: 1;
   mix-blend-mode: screen;
@@ -77,10 +130,45 @@ button {
   position: sticky;
   top: 0;
   z-index: 50;
-  backdrop-filter: blur(16px);
-  background: rgba(5, 24, 42, 0.65);
+  backdrop-filter: blur(18px);
+  background: linear-gradient(90deg, var(--primary) 0%, #071428 100%);
+  color: var(--primary-contrast);
   border-bottom: 1px solid rgba(255,255,255,0.06);
   transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Force consistent vertical centering for header elements */
+.header-bar {
+  display: flex;
+  align-items: center;
+}
+
+.header-bar .header-wrap {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.header-bar .main-nav,
+.header-bar .logo-link,
+.header-bar .phone-cta,
+.header-bar .nav-dropdown {
+  display: inline-flex;
+  align-items: center;
+}
+
+.header-bar .logo-link {
+  justify-self: center;
+  height: 32px;
+}
+
+.header-bar .dropdown-toggle,
+.header-bar .phone-cta {
+  height: 32px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 
 .header-bar.header-hidden {
@@ -93,7 +181,7 @@ button {
   max-width: 1320px;
   width: 100%;
   margin: 0 auto;
-  padding: 6px 16px;
+  padding: 4px 8px;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
@@ -102,21 +190,30 @@ button {
 }
 
 .logo-link {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.1rem;
+  position: relative;
+  left: 0;
   font-weight: 800;
-  letter-spacing: 0.16em;
-  color: var(--surface);
+  letter-spacing: 0.14em;
+  color: var(--primary-contrast);
   text-transform: uppercase;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  transform: translateY(24px);
+  font-size: 1.9rem;
+  height: 60px;
 }
+
+/* Placements: menu left, logo center, CTA right */
+.main-nav { grid-column: 1; justify-self: start; }
+.logo-link { grid-column: 2; justify-self: center; }
+.phone-cta { grid-column: 3; justify-self: end; }
 
 .main-nav {
   grid-column: 1;
   justify-self: start;
   display: flex;
+  align-items: center;
   gap: 28px;
   flex-wrap: wrap;
 }
@@ -125,6 +222,8 @@ button {
   position: relative;
   overflow: visible;
   z-index: 60;
+  display: flex;
+  align-items: center;
 }
 
 .dropdown-toggle,
@@ -132,44 +231,50 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 16px;
-  min-width: 240px;
-  width: 240px;
-  border-radius: 999px;
+  padding: 4px 10px;
+  min-width: 90px;
+  height: 32px;
+  border-radius: 16px;
   font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1;
 }
 
+
 .dropdown-toggle {
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.08);
-  color: var(--surface);
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color: var(--primary-contrast);
   cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+  transform: translateY(-16px);
 }
 
 .phone-cta {
-  background: linear-gradient(135deg, #f79f3d 0%, #ffc78b 100%);
-  color: #0d2a49;
-  box-shadow: 0 20px 50px rgba(247, 159, 61, 0.24);
+  background: linear-gradient(135deg, #ff9f3d 0%, #ffc87b 100%);
+  color: var(--primary-contrast);
+  box-shadow: 0 18px 44px rgba(255, 159, 61, 0.12);
   justify-self: end;
+  transform: translateY(-16px);
 }
 
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% - 6px);
   left: 0;
   min-width: 240px;
   min-width: 320px;
-  width: 340px;
-  max-width: 380px;
+  width: 320px;
+  max-width: 360px;
   max-height: calc(100vh - 140px);
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 32px;
-  box-shadow: 0 24px 60px rgba(3, 18, 38, 0.18);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 22px;
+  box-shadow: 0 10px 28px rgba(2,6,23,0.45);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
   z-index: 9999;
   overflow: hidden;
@@ -188,10 +293,10 @@ button {
 
 .dropdown-menu a {
   display: block;
-  padding: 16px 20px;
-  color: #111111;
+  padding: 12px 16px;
+  color: var(--primary-contrast);
   font-weight: 700;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
 }
 
 .dropdown-menu a:last-child {
@@ -199,17 +304,17 @@ button {
 }
 
 .dropdown-menu a:hover {
-  background: rgba(30, 109, 168, 0.12);
+  background: rgba(255,255,255,0.03);
 }
 
 .main-nav > a {
-  color: var(--muted);
+  color: rgba(255,255,255,0.9);
   font-weight: 600;
   transition: color 180ms ease;
 }
 
 .main-nav > a:hover {
-  color: var(--text);
+  color: var(--accent-soft);
 }
 
 .phone-cta {
@@ -230,7 +335,7 @@ button {
   overflow: hidden;
   padding: 28px 0 12px;
   min-height: calc(100vh - 64px);
-  background: linear-gradient(180deg, rgba(5, 24, 42, 0.96), rgba(8, 34, 60, 0.96));
+  background: linear-gradient(180deg, #f6f8fb 0%, #ffffff 70%);
   position: relative;
 }
 
@@ -238,10 +343,10 @@ button {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 25% 20%, rgba(255,255,255,0.18), transparent 16%),
-              radial-gradient(circle at 80% 15%, rgba(255,255,255,0.12), transparent 20%),
-              radial-gradient(circle at 60% 85%, rgba(255,255,255,0.10), transparent 24%);
-  opacity: 0.65;
+  background: radial-gradient(circle at 25% 20%, rgba(13, 42, 73, 0.08), transparent 16%),
+              radial-gradient(circle at 80% 15%, rgba(255,255,255,0.55), transparent 20%),
+              radial-gradient(circle at 60% 85%, rgba(13, 42, 73, 0.06), transparent 24%);
+  opacity: 0.55;
   pointer-events: none;
   mix-blend-mode: screen;
 }
@@ -276,7 +381,7 @@ button {
 
 .hero-copy h1 {
   margin: 0;
-  color: var(--surface);
+  color: var(--heading);
   font-size: clamp(2.2rem, 3.5vw, 3.6rem);
   line-height: 1.05;
 }
@@ -284,7 +389,7 @@ button {
 .hero-copy p {
   margin: 20px 0 24px;
   max-width: 540px;
-  color: rgba(248,250,252,0.88);
+  color: var(--text);
   font-size: 1rem;
   line-height: 1.7;
 }
@@ -302,7 +407,7 @@ button {
 .hero-benefits {
   margin: 24px 0 0;
   padding-left: 20px;
-  color: rgba(248,250,252,0.82);
+  color: var(--text);
   list-style: disc;
   list-style-position: inside;
   max-width: 540px;
@@ -323,9 +428,9 @@ button {
   max-width: 520px;
   border-radius: 28px;
   overflow: hidden;
-  border: 1px solid rgba(247,159,61,0.18);
-  box-shadow: 0 24px 54px rgba(3, 18, 38, 0.12);
-  background: rgba(247,250,255,0.96);
+  border: 1px solid rgba(255,255,255,0.22);
+  box-shadow: 0 24px 54px rgba(13, 42, 73, 0.12);
+  background: linear-gradient(180deg, rgba(13, 42, 73, 0.96), rgba(17, 59, 99, 0.96));
 }
 
 .hero-card.logo-only {
@@ -366,12 +471,12 @@ button {
 
 .section {
   padding: 72px 24px;
-  background: rgba(247, 250, 255, 0.04);
+  background: #f6f8fb;
   min-height: 620px;
 }
 
 .section:nth-child(even) {
-  background: rgba(30, 109, 168, 0.14);
+  background: #eef4fc;
 }
 
 .section-head {
@@ -394,14 +499,20 @@ button {
   margin: 0;
   font-size: clamp(2rem, 3vw, 3.4rem);
   line-height: 1.05;
-  color: var(--surface);
+  color: var(--heading);
 }
 
 .section-head p {
   margin: 20px auto 0;
-  color: rgba(248,250,252,0.76);
+  color: var(--text);
   max-width: 680px;
   line-height: 1.9;
+}
+
+/* Ensure readable dark text on light sections and hero area */
+.hero-panel h1, .hero-panel h2, .hero-panel h3, .hero-panel p, .hero-panel li, .hero-panel a,
+.section:not(.contact) h1, .section:not(.contact) h2, .section:not(.contact) h3, .section:not(.contact) p, .section:not(.contact) li, .section:not(.contact) a {
+  color: var(--text);
 }
 
 .stats-grid,
@@ -450,6 +561,12 @@ button {
   line-height: 1.8;
 }
 
+/* Final override: ensure dark text on all light sections */
+.hero-panel h1, .hero-panel h2, .hero-panel h3, .hero-panel p, .hero-panel li, .hero-panel a,
+.section:not(.contact) h1, .section:not(.contact) h2, .section:not(.contact) h3, .section:not(.contact) p, .section:not(.contact) li, .section:not(.contact) a {
+  color: var(--text) !important;
+}
+
 .trust-cards,
 .services-grid,
 .why-grid,
@@ -472,11 +589,11 @@ button {
 .cert-box,
 .contact-card,
 .contact-form {
-  background: rgba(247, 250, 255, 0.96);
-  border: 1px solid rgba(30, 109, 168, 0.12);
+  background: rgba(13, 42, 73, 0.96);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 24px;
   padding: 20px;
-  box-shadow: 0 18px 40px rgba(3, 18, 38, 0.10);
+  box-shadow: 0 18px 40px rgba(13, 42, 73, 0.14);
   min-height: 400px;
 }
 
@@ -487,28 +604,34 @@ button {
   width: min(100%, 1040px);
 }
 
-.trust-card h3,
-.service-card h3,
-.why-card h3,
-.project-summary h3,
-.process-step h3,
-.cert-box h3,
-.contact-card h3 {
+.section .trust-card h3,
+.section .service-card h3,
+.section .why-card h3,
+.section .project-summary h3,
+.section .process-step h3,
+.section .cert-box h3,
+.section .contact-card h3 {
   margin: 0 0 16px;
-  color: var(--text-dark);
+  color: var(--accent) !important;
   font-size: 1.2rem;
 }
 
-.trust-card p,
-.service-card p,
-.why-card p,
-.project-summary p,
-.process-step p,
-.cert-box p,
-.contact-card p {
+.section .trust-card p,
+.section .service-card p,
+.section .why-card p,
+.section .project-summary p,
+.section .process-step p,
+.section .cert-box p,
+.section .contact-card p {
   margin: 0;
-  color: #111111;
+  color: #ffffff !important;
   line-height: 1.8;
+}
+
+/* Ensure any links or list items inside dark cards are white */
+.section .trust-card a, .section .service-card a, .section .why-card a, .section .project-summary a, .section .process-step a, .section .cert-box a, .section .contact-card a,
+.section .trust-card li, .section .service-card li, .section .why-card li, .section .project-summary li, .section .process-step li, .section .cert-box li, .section .contact-card li {
+  color: #ffffff !important;
 }
 
 .cert-images {
@@ -614,6 +737,47 @@ button {
   padding: 14px 16px 18px;
 }
 
+/* Project cards: bold labels in orange, remaining copy in dark text */
+.section .projects-grid .project-summary strong,
+.section .projects-grid .project-summary b,
+.section .project-card .project-summary strong,
+.section .project-card .project-summary b {
+  color: var(--accent) !important;
+  font-weight: 700;
+}
+
+/* Specific accent for the four highlighted project titles only */
+.section.proyectos .project-summary h3.special-accent,
+.section#proyectos .project-summary h3.special-accent,
+.projects-grid .project-summary h3.special-accent,
+.project-card .project-summary h3.special-accent {
+  color: #ff2f00 !important;
+}
+
+.section .projects-grid .project-summary p,
+.section .project-card .project-summary p,
+.section .projects-grid .project-summary span,
+.section .project-card .project-summary span,
+.section .projects-grid .project-summary li,
+.section .project-card .project-summary li {
+  color: var(--text) !important;
+}
+
+/* Label style for project detail prefixes (Problema detectado / Solución aplicada / Resultado) */
+.section .project-summary p strong,
+.section .project-summary p b,
+.project-summary p strong,
+.project-summary p b {
+  color: #f79f3d !important;
+}
+
+/* Ensure process step copy is dark (black) on the method/process section */
+.process-grid .process-step p,
+.process-grid .process-step li,
+.process-grid .process-step a {
+  color: var(--text) !important;
+}
+
 .lightbox-overlay {
   position: fixed;
   inset: 0;
@@ -700,7 +864,8 @@ button {
 
 @media (max-width: 960px) {
   .projects-grid {
-    grid-auto-columns: minmax(280px, 90%);
+    padding: 12px 16px;
+    grid-template-columns: auto 1fr auto;
   }
 
   .carousel-control {
@@ -842,11 +1007,11 @@ button {
 
 .contact-form,
 .contact-panel {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(13, 42, 73, 0.95);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 20px;
   padding: 22px;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 14px 32px rgba(13, 42, 73, 0.14);
   min-height: 420px;
 }
 
@@ -911,11 +1076,10 @@ button {
   color: rgba(255,255,255,0.96);
   line-height: 1.75;
   font-size: 0.95rem;
-  background: rgba(255,255,255,0.72);
-  color: #10293f;
+  background: rgba(255,255,255,0.06);
   border-radius: 18px;
   padding: 16px 18px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 18px rgba(13, 42, 73, 0.12);
 }
 
 .contact-panel-item {
@@ -937,7 +1101,7 @@ button {
   width: 44px;
   height: 44px;
   border-radius: 14px;
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.16);
   color: #ffd385;
   font-size: 1.25rem;
 }
@@ -1004,8 +1168,8 @@ button {
 
 .button-secondary {
   background: rgba(255, 255, 255, 0.12);
-  color: var(--surface);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--primary);
+  border: 1px solid rgba(11,42,68,0.12);
 }
 
 .button:hover {
@@ -1013,7 +1177,7 @@ button {
 }
 
 .site-footer {
-  background: rgba(5, 24, 42, 0.96);
+  background: #0d2a49;
   padding: 40px 24px 28px;
   border-top: 1px solid rgba(255,255,255,0.08);
 }
@@ -1030,7 +1194,7 @@ button {
   font-weight: 800;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--surface);
+  color: #ffffff;
   margin-bottom: 18px;
 }
 
@@ -1042,7 +1206,7 @@ button {
 
 .footer-links a,
 .footer-contact a {
-  color: rgba(248,250,252,0.78);
+  color: rgba(255,255,255,0.8);
   font-weight: 600;
 }
 
@@ -1119,10 +1283,15 @@ button {
 
 @media (max-width: 720px) {
   .header-wrap {
-    grid-template-columns: 1fr;
+    max-width: 100%;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
+
+  .main-nav { grid-column: 1; justify-self: start; }
+  .logo-link { grid-column: 2; justify-self: center; }
+  .phone-cta { grid-column: 3; justify-self: end; }
     justify-items: center;
-    padding: 16px 18px;
+    padding: 8px 12px;
   }
 
   .logo-link {
@@ -1149,8 +1318,13 @@ button {
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    padding: 14px 16px;
+    padding: 8px 10px;
+    height: 32px;
   }
+
+  /* Raise the menu and CTA buttons on smaller screens as well (slightly less than desktop) */
+  .dropdown-toggle { transform: translateY(-12px) !important; }
+  .phone-cta { transform: translateY(-12px) !important; }
 
   .dropdown-menu {
     min-width: calc(100vw - 40px);
@@ -1171,7 +1345,7 @@ button {
 
 @media (max-width: 520px) {
   .header-wrap {
-    padding: 14px 16px;
+    padding: 8px 12px;
   }
 
   .hero-panel {
@@ -1285,7 +1459,7 @@ button {
     grid-template-columns: auto 1fr auto !important;
     align-items: center !important;
     justify-items: stretch !important;
-    padding: 10px 16px !important;
+    padding: 8px 12px !important;
   }
 
   .stats-grid,
@@ -1308,11 +1482,12 @@ button {
   }
 
   .logo-link {
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    position: static !important;
+    transform: none !important;
     display: block !important;
     margin: 0 !important;
+    grid-column: 2 !important;
+    justify-self: center !important;
     font-size: 1.05rem !important;
   }
 
@@ -1330,8 +1505,9 @@ button {
   .dropdown-toggle,
   .phone-cta {
     width: auto !important;
-    min-width: 220px !important;
-    padding: 12px 16px !important;
+    min-width: 120px !important;
+    padding: 8px 10px !important;
+    height: 32px !important;
   }
 
   .dropdown-menu {
@@ -1807,8 +1983,9 @@ button {
   .dropdown-toggle,
   .phone-cta {
     width: auto !important;
-    min-width: 220px !important;
-    padding: 12px 16px !important;
+    min-width: 120px !important;
+    padding: 8px 10px !important;
+    height: 32px !important;
   }
 
   .dropdown-menu {

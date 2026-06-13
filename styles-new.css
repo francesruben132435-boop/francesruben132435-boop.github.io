@@ -1,19 +1,20 @@
 /* Base settings */
 :root {
   color-scheme: light;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   font-size: 16px;
   color: #eef0f4;
   background: #05121f;
   --bg: #05121f;
-  --primary: #0f4e85;
-  --accent: #ff8c34;
-  --accent-soft: #ffa56c;
+  --primary: #0b2a44; /* same deep navy as main */
+  --primary-contrast: #ffffff;
+  --accent: #c78b2a; /* warm gold */
+  --accent-soft: #fde8c8;
   --surface: #0b1928;
   --surface-strong: #0f253f;
   --text: #edf2f7;
   --muted: #9bb3c4;
-  --border: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.06);
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
 }
 
@@ -55,8 +56,9 @@ button {
   top: 0;
   z-index: 50;
   backdrop-filter: blur(14px);
-  background: rgba(4, 12, 20, 0.85);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(90deg, var(--primary) 0%, #071428 100%);
+  color: var(--primary-contrast);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .header-wrap {
@@ -73,7 +75,7 @@ button {
   font-size: 1rem;
   font-weight: 800;
   letter-spacing: 0.24em;
-  color: var(--text);
+  color: var(--primary-contrast);
   text-transform: uppercase;
 }
 
@@ -84,13 +86,13 @@ button {
 }
 
 .main-nav a {
-  color: var(--muted);
+  color: rgba(255,255,255,0.9);
   font-weight: 600;
   transition: color 180ms ease;
 }
 
 .main-nav a:hover {
-  color: var(--text);
+  color: var(--accent-soft);
 }
 
 .phone-cta {
@@ -98,11 +100,34 @@ button {
   align-items: center;
   justify-content: center;
   padding: 12px 20px;
-  background: linear-gradient(135deg, #ff8c34 0%, #ffb067 100%);
-  color: #07131b;
+  background: linear-gradient(135deg, var(--accent) 0%, #ffb067 100%);
+  color: var(--primary-contrast);
   border-radius: 999px;
   font-weight: 700;
-  box-shadow: 0 20px 60px rgba(255,140,52,0.22);
+  box-shadow: 0 20px 60px rgba(255,140,52,0.18);
+}
+
+/* Helpers for images/logos to keep coherence on dark backgrounds */
+.logo-img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logo-img--invert {
+  filter: brightness(0) invert(1) saturate(0%);
+}
+
+.img-coherent {
+  filter: saturate(0.95) contrast(1.02);
+}
+
+.logo-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
 }
 
 /* Hero */
